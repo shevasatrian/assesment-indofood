@@ -1,14 +1,12 @@
-// import { PRODUCTS } from "@/data/products";
-
 import { PRODUCTS } from "@/app/data/products";
 
 interface ProductDetailPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
-export default function ProductDetailPage({ params }: ProductDetailPageProps) {
-  const id = Number(params.id);
-  const produk = PRODUCTS.find((p) => p.id === id);
+export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
+  const { id } = await params; // tunggu params diselesaikan
+  const produk = PRODUCTS.find((p) => p.id === Number(id));
 
   if (!produk) {
     return <div className="text-center mt-10">Produk tidak ditemukan</div>;
