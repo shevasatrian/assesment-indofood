@@ -164,7 +164,7 @@ export default function HomePage() {
         <div className="flex flex-wrap justify-center gap-6 mt-4">
           {PRODUCTS.map((p) => (
             <div key={p.id} className="flex flex-col items-center">
-              <QrCode data={`/produk/${p.id}`} />
+              <QrCode data={`https://assesment-indofood-i9l4.vercel.app/produk/${p.id}`} />
               <div className="mt-2">{p.nama}</div>
             </div>
           ))}
